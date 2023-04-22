@@ -1,0 +1,21 @@
+{
+  "name": "midjourney-wrapper-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Blair B",
+  "license": "ISC",
+  "devDependencies": {
+    "rome": "^12.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.9.0",
+    "dotenv": "^16.0.3"
+  }
+}
