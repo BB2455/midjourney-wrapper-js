@@ -51,15 +51,15 @@ export const upscale = async (index, messageId, messageHash) => {
     message_id: messageId,
     application_id: '936929561302675456',
     session_id: '45bc04dd4da37141a5f73dfbfaf5bdcf',
-    data: { component_type: 2, custom_id: 'MJ::JOB::upsample::{}::{}'.format(index, messageHash) }
+    data: { component_type: 2, custom_id: `MJ::JOB::upsample::${index}::${messageHash}` }
   }
 
-  header = {
+  const header = {
     authorization: process.env.MIDJOURNEY_ACCOUNT_TOKEN,
     'Content-Type': 'application/json'
   }
 
-  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: payload, headers: header })
+  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: JSON.stringify(payload), headers: header })
 
   return response
 }
@@ -73,15 +73,15 @@ export const maxUpscale = async (messageId, messageHash) => {
     message_id: messageId,
     application_id: '936929561302675456',
     session_id: '1f3dbdf09efdf93d81a3a6420882c92c',
-    data: { component_type: 2, custom_id: 'MJ::JOB::upsample_max::1::{}::SOLO'.format(messageHash) }
+    data: { component_type: 2, custom_id: `MJ::JOB::upsample_max::1::${messageHash}::SOLO` }
   }
 
-  header = {
+  const header = {
     authorization: process.env.MIDJOURNEY_ACCOUNT_TOKEN,
     'Content-Type': 'application/json'
   }
 
-  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: payload, headers: header })
+  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: JSON.stringify(payload), headers: header })
 
   return response
 }
@@ -95,15 +95,15 @@ export const variation = async (index, messageId, messageHash) => {
     message_id: messageId,
     application_id: '936929561302675456',
     session_id: '1f3dbdf09efdf93d81a3a6420882c92c',
-    data: { component_type: 2, custom_id: 'MJ::JOB::variation::{}::{}'.format(index, messageHash) }
+    data: { component_type: 2, custom_id: `MJ::JOB::variation::${index}::${messageHash}` }
   }
 
-  header = {
+  const header = {
     authorization: process.env.MIDJOURNEY_ACCOUNT_TOKEN,
     'Content-Type': 'application/json'
   }
 
-  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: payload, headers: header })
+  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: JSON.stringify(payload), headers: header })
 
   return response
 }
