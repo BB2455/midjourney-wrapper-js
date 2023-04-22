@@ -19,25 +19,25 @@ export const passPromptToSelfBot = async (prompt) => {
         id: '938956540159881230',
         application_id: '936929561302675456',
         version: '1077969938624553050',
-        default_permission: True,
-        default_member_permissions: None,
+        default_permission: true,
+        default_member_permissions: null,
         type: 1,
-        nsfw: False,
+        nsfw: false,
         name: 'imagine',
         description: 'Create images with Midjourney',
-        dm_permission: True,
-        options: [{ type: 3, name: 'prompt', description: 'The prompt to imagine', required: True }]
+        dm_permission: true,
+        options: [{ type: 3, name: 'prompt', description: 'The prompt to imagine', required: true }]
       },
       attachments: []
     }
   }
 
-  header = {
+  const header = {
     authorization: process.env.MIDJOURNEY_ACCOUNT_TOKEN,
     'Content-Type': 'application/json'
   }
 
-  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: payload, headers: header })
+  const response = await fetch('https://discord.com/api/v9/interactions', { method: 'POST', body: JSON.stringify(payload), headers: header })
 
   return response
 }
