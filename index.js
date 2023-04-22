@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename)
 
 dotenv.config()
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] })
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] })
 
 client.commands = new Collection()
 
