@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+const MID_JOURNEY_ID = "936929561302675456"
+
 export const name = Events.MessageCreate
 
 export const execute = async (message) => {
@@ -18,7 +20,7 @@ export const execute = async (message) => {
       return
     }
 
-    if (String(message.author.id) !== process.env.MID_JOURNEY_ID) {
+    if (String(message.author.id) !== MID_JOURNEY_ID) {
       await message.channel.send('Use the command only when you reply to MidJourney')
       await message.delete()
       return

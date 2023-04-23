@@ -1,6 +1,9 @@
 import { SlashCommandBuilder } from 'discord.js'
 import globals from '../globals.js'
 import { variation } from '../midjourneyBot.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const data = new SlashCommandBuilder()
   .setName('mj_variation')
@@ -20,6 +23,10 @@ export const execute = async (interaction) => {
   if (globals.targetId === '') {
     await interaction.reply('You did not set target. To do so reply to targeted message with "$mj_target"')
     return
+  }
+
+  if (process.env.USE_MESSAGED_CHANNEL) {
+    globals.channel_id = interaction.channelId
   }
 
   const response = await variation(index, globals.targetId, globals.targetHash)

@@ -1,15 +1,20 @@
 import { SlashCommandBuilder } from 'discord.js'
 import globals from '../globals.js'
 import { maxUpscale } from '../midjourneyBot.js'
+import dotenv from 'dotenv'
 
-export const data = new SlashCommandBuilder()
-  .setName('mj_upscale_to_max')
-  .setDescription('Upscale to max targeted image (should be already upscaled using mj_upscale)"')
+dotenv.config()
+
+export const data = new SlashCommandBuilder().setName('mj_upscale_to_max').setDescription('Upscale to max targeted image (should be already upscaled using mj_upscale)"')
 
 export const execute = async (interaction) => {
   if (globals.targetId === '') {
     await interaction.reply('You did not set target. To do so reply to targeted message with "$mj_target"')
     return
+  }
+
+  if (process.env.USE_MESSAGED_CHANNEL) {
+    globals.channel_id = interaction.channelId
   }
 
   const response = await maxUpscale(globals.targetId, globals.targetHash)

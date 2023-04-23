@@ -1,4 +1,5 @@
 import dotenv from 'dotenv'
+import globals from './globals.js'
 
 dotenv.config()
 
@@ -7,7 +8,7 @@ export const passPromptToSelfBot = async (prompt) => {
     type: 2,
     application_id: '936929561302675456',
     guild_id: process.env.SERVER_ID,
-    channel_id: process.env.CHANNEL_ID,
+    channel_id: globals.channel_id,
     session_id: '2fb980f65e5c9a77c96ca01f2c242cf6',
     data: {
       version: '1077969938624553050',
@@ -46,7 +47,7 @@ export const upscale = async (index, messageId, messageHash) => {
   payload = {
     type: 3,
     guild_id: process.env.SERVER_ID,
-    channel_id: process.env.CHANNEL_ID,
+    channel_id: globals.channel_id,
     message_flags: 0,
     message_id: messageId,
     application_id: '936929561302675456',
@@ -68,7 +69,7 @@ export const maxUpscale = async (messageId, messageHash) => {
   payload = {
     type: 3,
     guild_id: process.env.SERVER_ID,
-    channel_id: process.env.CHANNEL_ID,
+    channel_id: globals.channel_id,
     message_flags: 0,
     message_id: messageId,
     application_id: '936929561302675456',
@@ -90,7 +91,7 @@ export const variation = async (index, messageId, messageHash) => {
   payload = {
     type: 3,
     guild_id: process.env.SERVER_ID,
-    channel_id: process.env.CHANNEL_ID,
+    channel_id: globals.channel_id,
     message_flags: 0,
     message_id: messageId,
     application_id: '936929561302675456',
