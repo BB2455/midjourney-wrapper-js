@@ -10,6 +10,8 @@ export const data = new SlashCommandBuilder()
 
 export const execute = async (interaction) => {
   const index = interaction.options.getInteger('index', true)
+  const reset_target = interaction.options.getBoolean('reset_targets')
+
   if (index <= 0 || index > 4) {
     await interaction.reply('Invalid argument, pick from 1 to 4')
     return
